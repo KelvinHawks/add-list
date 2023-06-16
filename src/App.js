@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
+  // const [result, setIsImportant] = React.useState("click below")
+  // const hello = result
+
+
+// function handleClick(){
+//   setIsImportant("clicked Thank you")
+// }
+
+  
+    // count = result
+    // setIncrement(count ++
+const [thingsArray, setThingsArray] = React.useState(["thing1"])
+
+
+
+  function addThings(){
+    setThingsArray(prevArray => [...prevArray, `thing ${prevArray.length + 1}`])
+   }
+   
+  const thingsElements = thingsArray.map(thing => <p>{thing}</p>)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <button onClick={addThings}>Add item</button>
+     {thingsElements}
     </div>
   );
 }
